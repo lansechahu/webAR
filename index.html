@@ -42,7 +42,7 @@
 
 <script>
     var vconsole = new VConsole();
-    console.log('v0.18');
+    console.log('v0.20');
 
     let wid = window.innerWidth;
     let hei = window.innerHeight;
@@ -57,7 +57,11 @@
         console.log('11111');
         var mediaDev = window.navigator.mediaDevices.getUserMedia({
             audio: false,
-            video: { facingMode: "environment" }
+            video: {
+                'optional': [{
+                    'sourceId': exArray[1] //0为前置摄像头，1为后置
+                }
+            }
         });
         mediaDev.then(onStreamFetched);
         mediaDev.catch(function (err) {
