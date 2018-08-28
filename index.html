@@ -55,18 +55,28 @@
 
     if (navigator.getUserMedia) {
         console.log('11111');
-        var mediaDev = window.navigator.mediaDevices.getUserMedia({
+
+        navigator.mediaDevices.enumerateDevices().then(function (devices) {
+            console.log(devices);
+            /*var camreass=[];
+            devices.forEach(function(e){
+               if(e.kind=='')
+            });*/
+        })
+
+
+        /*var mediaDev = window.navigator.mediaDevices.getUserMedia({
             audio: false,
             video: {
                 'optional': [{
                     'sourceId': exArray[1] //0为前置摄像头，1为后置
-                }
+                }]
             }
         });
         mediaDev.then(onStreamFetched);
         mediaDev.catch(function (err) {
             alert("Camera Erro. " + err);
-        });
+        });*/
     } else {
         console.log('22222');
     }
