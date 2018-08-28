@@ -21,6 +21,7 @@
     </style>
 
     <script src="js/vconsole.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
 </head>
 
 <body>
@@ -32,6 +33,12 @@
     var vconsole = new VConsole();
     console.log('v0.12');
 
+    let wid = window.innerWidth;
+    let hei = window.innerHeight;
+
+    $('#video').attr('width', wid);
+    $('#video').attr('height', hei);
+
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
 
@@ -40,8 +47,8 @@
         var mediaDev = window.navigator.mediaDevices.getUserMedia({
             audio: false,
             video: {
-                width: 640,
-                height: 480,
+                width: wid,
+                height: hei,
                 frameRate: 30
             }
         });
