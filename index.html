@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>webAR</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
     <style>
         #videoBox {
@@ -29,6 +30,7 @@
 
 <script>
     var vconsole = new VConsole();
+    console.log('v0.1');
 
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
@@ -43,6 +45,7 @@
                 var video = document.getElementById('video');
                 video.srcObject = stream;
                 video.onloadedmetadata = function (e) {
+                    console.log('play');
                     video.play();
                 };
             })
