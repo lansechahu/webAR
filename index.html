@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webAR</title>
+
+    <style>
+        #videoBox {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        #videoBox video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="videoBox"></div>
+
+<script>
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+
+    if (navigator.getUserMedia) {
+        console.log('11111');
+        navigator.mediaDevices.getUserMedia({video: true})
+            .then(function (stream) {
+                /* 使用这个stream stream */
+                var video = document.createElement('video');
+                document.getElementById('videoBox').appendChild(video);
+                video.srcObject = stream;
+                video.onloadedmetadata = function (e) {
+                    video.play();
+                };
+            })
+            .catch(function (err) {
+                /* 处理error */
+                alert(err);
+            });
+    } else {
+        console.log('22222');
+    }
+</script>
+</body>
+</html>
