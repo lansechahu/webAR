@@ -42,7 +42,7 @@
 
 <script>
     var vconsole = new VConsole();
-    console.log('v0.13');
+    console.log('v0.14');
 
     let wid = window.innerWidth;
     let hei = window.innerHeight;
@@ -57,7 +57,7 @@
         console.log('11111');
         var mediaDev = window.navigator.mediaDevices.getUserMedia({
             audio: false,
-            video: true
+            video: {facingMode:'environment'}
         });
         mediaDev.then(onStreamFetched);
         mediaDev.catch(function (err) {
