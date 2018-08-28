@@ -57,7 +57,7 @@
         console.log('11111');
         var mediaDev = window.navigator.mediaDevices.getUserMedia({
             audio: false,
-            video: {facingMode: { exact: "environment" }}
+            video: { facingMode: "environment" }
         });
         mediaDev.then(onStreamFetched);
         mediaDev.catch(function (err) {
